@@ -6,8 +6,6 @@
 
 本模块仅适用于已经 root 的安卓设备，支持 [Magisk](https://github.com/topjohnwu/Magisk) / [KernelSU](https://github.com/tiann/KernelSU) / [APatch](https://github.com/bmax121/APatch) 等 root 工具
 
-目前来说，KernelSU 是最适配的 root 工具，因为隐藏性好，兼容性强，且作者也在使用
-
 在 Release 页面下载 zip 文件，提供了 arm64 和 armv7 两个版本。一般推荐使用 arm64 版，因为它在性能上更优，并且与大多数现代设备兼容。
 
 ---
@@ -23,7 +21,7 @@
 - 查看日志
 - 添加自定义规则
 
-如果你更倾向于使用移动设备管理模块，可以尝试使用 [AdGuard Home Manager](https://github.com/JGeek00/adguard-home-manager) 应用。
+如果你更倾向于使用app管理AdGuardHome，可以尝试使用 [AdGuard Home Manager](https://github.com/JGeek00/adguard-home-manager) 应用。
 
 ---
 
@@ -43,7 +41,7 @@ touch /data/adb/modules/AdGuardHome/disable
 rm /data/adb/modules/AdGuardHome/disable
 ```
 
-实际上本模块可以分为两部分，一部分是 AdGuardHome 本身，它在本地搭建了一个可自定义拦截功能的 DNS 服务器，另一部分是 iptables 转发规则，它负责将本机所有53端口出口流量重定向到 AdGuardHome
+本模块可以分为两部分，一部分是 AdGuardHome 本身，它在本地搭建了一个可自定义拦截功能的 DNS 服务器，另一部分是 iptables 转发规则，它负责将本机所有53端口出口流量重定向到 AdGuardHome
 
 ---
 
@@ -61,13 +59,11 @@ proxy-providers:
     type: http
     url: ""
     interval: 86400
-    # proxy: PROXY
 
   provider2:
     type: http
     url: ""
     interval: 86400
-    # proxy: DIRECT
 
 proxy-groups:
   - name: PROXY
@@ -81,30 +77,32 @@ proxy-groups:
     include-all: true
 
 rules:
-  # rules geosite
   - GEOSITE,private,DIRECT
-  - GEOSITE,telegram,PROXY
-  - GEOSITE,google,PROXY
   - GEOSITE,googlefcm,DIRECT
   - GEOSITE,bilibili,DIRECT
-  - GEOSITE,youtube,PROXY
-  - GEOSITE,twitter,PROXY
-  - GEOSITE,pixiv,PROXY
-  - GEOSITE,category-scholar-!cn,PROXY
   - GEOSITE,onedrive,PROXY
+  - GEOSITE,twitter,PROXY
+  - GEOSITE,youtube,PROXY
+  - GEOSITE,telegram,PROXY
+  - GEOSITE,google,PROXY
+  
   - GEOSITE,microsoft@cn,DIRECT
-  - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,category-scholar-!cn,PROXY
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
   - GEOSITE,geolocation-!cn,PROXY
   - GEOSITE,cn,DIRECT
 
-  # rules geoip
   - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,google,DIRECT
+  - GEOIP,telegram,PROXY
   - GEOIP,cn,DIRECT
-  - MATCH,PROXY
+
+  - MATCH,DIRECT
 
 ```
+
+没有写 DNS 部分是因为 FlClash 支持 DNS 覆写，在软件内就可配置 DNS 部分，将域名解析服务器改为 127.0.0.1:5591 即可使用本地的 adgh 作为DNS服务器
 
 **代理模块**：如 [box_for_magisk](https://github.com/taamarin/box_for_magisk)、[akashaProxy](https://github.com/akashaProxy/akashaProxy) 等。这些模块通常运行在系统层级，适合需要更高权限或更深度集成的场景。
 
@@ -114,12 +112,12 @@ rules:
 
 ```yaml
 dns:
-  # existing code...
+  # ...
   default-nameserver:
     - 223.5.5.5
   nameserver:
     - 127.0.0.1:5591
-  # existing code...
+  # ...
 ```
 
 ---
