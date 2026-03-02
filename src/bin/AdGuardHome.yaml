@@ -23,8 +23,9 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - https://223.6.6.6/dns-query
+    - https://120.53.53.53/dns-que
+    - https://223.5.5.5/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
     - 119.29.29.29
@@ -33,6 +34,8 @@ dns:
     - 1.1.1.1
     - 8.8.8.8
   fallback_dns:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
     - https://dns.google/dns-query
     - https://cloudflare-dns.com/dns-query
   upstream_mode: load_balance
@@ -47,7 +50,7 @@ dns:
     - 127.0.0.0/8
     - ::1/128
   cache_enabled: true
-  cache_size: 67108864
+  cache_size: 999999
   cache_ttl_min: 0
   cache_ttl_max: 0
   cache_optimistic: true
@@ -98,19 +101,27 @@ querylog:
   interval: 24h
   size_memory: 1000
   enabled: true
+  ignored_enabled: false
   file_enabled: true
 statistics:
   dir_path: ""
   ignored: []
   interval: 24h
   enabled: true
+  ignored_enabled: false
 filters:
   - enabled: true
-    url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt
-    name: AWAvenue
-    id: 1732747955
+    url: https://raw.githubusercontent.com/linjoin/Adguard_Interception_list/refs/heads/main/Ad%20blocker%20blacklist.txt
+    name: linjoin
+    id: 1771317186
+  - enabled: true
+    url: https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockdns.txt
+    name: adblockfilters
+    id: 1772458148
 whitelist_filters: []
 user_rules:
+  - '||api.seayoo.com^$important'
+  - '||metrics.icloud.com^$important'
   - ""
 dhcp:
   enabled: false
@@ -155,7 +166,7 @@ filtering:
   safesearch_cache_size: 1048576
   parental_cache_size: 1048576
   cache_time: 30
-  filters_update_interval: 72
+  filters_update_interval: 0
   blocked_response_ttl: 10
   filtering_enabled: true
   rewrites_enabled: true
@@ -183,4 +194,4 @@ os:
   group: ""
   user: ""
   rlimit_nofile: 0
-schema_version: 32
+schema_version: 33
