@@ -28,15 +28,15 @@ start_adguardhome() {
     # check if iptables is enabled
     if [ "$enable_iptables" = true ]; then
       $SCRIPT_DIR/iptables.sh enable
-      log "🥰 started PID: $adg_pid iptables: enabled" "🥰 启动成功 PID: $adg_pid iptables 已启用"
-      update_description "🥰 Started PID: $adg_pid iptables: enabled" "🥰 启动成功 PID: $adg_pid iptables 已启用"
+      log "🌳 started PID: $adg_pid iptables: enabled" "🌳 启动成功 PID: $adg_pid iptables 已启用"
+      update_description "🌳 Started PID: $adg_pid iptables: enabled" "🌳 启动成功 PID: $adg_pid iptables 已启用"
     else
-      log "🥰 started PID: $adg_pid iptables: disabled" "🥰 启动成功 PID: $adg_pid iptables 已禁用"
-      update_description "🥰 Started PID: $adg_pid iptables: disabled" "🥰 启动成功 PID: $adg_pid iptables 已禁用"
+      log "🌳 started PID: $adg_pid iptables: disabled" "🌳 启动成功 PID: $adg_pid iptables 已禁用"
+      update_description "🌳 Started PID: $adg_pid iptables: disabled" "🌳 启动成功 PID: $adg_pid iptables 已禁用"
     fi
   else
-    log "😭 Error occurred, check logs for details" "😭 出现错误，请检查日志以获取详细信息"
-    update_description "😭 Error occurred, check logs for details" "😭 出现错误，请检查日志以获取详细信息"
+    log "🪵 Error occurred, check logs for details" "🪵 出现错误，请检查日志以获取详细信息"
+    update_description "🪵 Error occurred, check logs for details" "🪵 出现错误，请检查日志以获取详细信息"
     $SCRIPT_DIR/debug.sh
     exit 1
   fi
@@ -52,7 +52,7 @@ stop_adguardhome() {
     pkill -f "AdGuardHome" || pkill -9 -f "AdGuardHome"
     log "AdGuardHome force stopped" "AdGuardHome 强制停止"
   fi
-  update_description "❌ Stopped" "❌ 已停止"
+  update_description "🪵 Stopped" "🪵 已停止"
   $SCRIPT_DIR/iptables.sh disable
 }
 
