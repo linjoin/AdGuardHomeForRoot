@@ -1,6 +1,5 @@
 # Changelog
 
-- 例行更新广告规则
-- Routine update of ad rules
-- 添加 ipv6 dns 劫持功能 #53(wTNTw)
-- Added ipv6 dns hijacking feature #53(wTNTw)
+- 删除an-ad广告拦截源和AdRules广告拦截源
+- Delete the an-ad ad block source and the AdRules ad block source
+- 更新adh核心
