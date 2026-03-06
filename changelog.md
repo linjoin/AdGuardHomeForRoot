@@ -1,8 +1,6 @@
-# Changelog
-
-- 删除an-ad广告拦截源和AdRules广告拦截源
-- Delete the an-ad ad block source and the AdRules ad block source
-- 同步 AdGuard Home v0.107.72
-- Sync with AdGuard Home v0.107.72
-- 修复 debug.sh 中的错误 (#54)
-- Fix the error in debug.sh (#54)
+例行更新规则
+interestRoutine rootupdate rulesegular update rules
+增加更加人性化的安装流程
+Increase the more humanized installation process
+解决了提出问题的用户
+SolveIt's resolved.The problem has been solved.Resolved the issue for the user who raised it.
