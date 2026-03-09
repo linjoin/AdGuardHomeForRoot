@@ -1,11 +1,6 @@
-例行更新规则
-
-interestRoutine rootupdate rulesegular update rules
-
-增加更加人性化的安装流程
-
-Increase the more humanized installation process
-
-解决了提出问题的用户
-
-SolveIt's resolved.The problem has been solved.Resolved the issue for the user who raised it.
+- 增加更多的人性化安装过程(自动检测是否使用box for root)
+- Increase the more humanized installation process(Automatically detect whether the box for root is used)
+- 增加一个过滤规则
+- increaseAdd one more.a filter cup.ing rule
+- 移除了一个无效的DNS服务器
+- An invalid DNS server has been removed.
