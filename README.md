@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/badge/License-MIT-9b5de5?logo=opensourceinitiative&logoColor=white)
 [![Docs](https://img.shields.io/badge/Docs-Guide-0066ff?logo=book&logoColor=white)](docs/index.md)
 [![Join Telegram Channel](https://img.shields.io/badge/Telegram-Join%20Channel-06d6a0?logo=telegram&logoColor=white)](https://t.me/+jMhOKwFEgwxlOTA1)
-[![Join Telegram Group](https://img.shields.io/badge/Telegram-Join%20Group-118ab2?logo=telegram&logoColor=white)](https://t.me/+vrIbVug1CRMzY2I1)
+[![Join Telegram Group](https://img.shields.io/badge/Telegram-Join%20Group-118ab2?logo=telegram&logoColor=white)](https://t.me/vrIbVug1CRMzY2I1)
 
 关注我们的频道获取最新消息，或加入我们的群组进行讨论！
 
