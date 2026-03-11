@@ -6,5 +6,5 @@
 - To update AdGuard Home v0.107.73 
 - 运行状态发生变化时发出通知
 - Notify when the operation status changes
-- 下版本预计适配 NetProxy 透明代理和支持ARM7a架构手机
-- The next version is expected to be compatible with NetProxy transparent proxy and support ARM7a architecture mobile phones.
+- 下版本预计适配 NetProxy 透明代理
+- The next version is expected to be compatible with NetProxy transparent proxy 
