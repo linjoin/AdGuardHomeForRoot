@@ -1,6 +1,10 @@
-- 增加更多的人性化安装过程(自动检测是否使用box for root)
-- Increase the more humanized installation process(Automatically detect whether the box for root is used)
-- 增加一个过滤规则
-- increaseAdd one more.a filter cup.ing rule
-- 移除了一个无效的DNS服务器
-- An invalid DNS server has been removed.
+- 例行增添规则
+- Routine addition rules
+- 优化了一下代码
+- The code has been optimized.
+- 更新AdGuard Home v0.107.73 
+- To update AdGuard Home v0.107.73 
+- 运行状态发生变化时发出通知
+- Notify when the operation status changes
+- 下版本预计适配 NetProxy 透明代理和支持ARM7a架构手机
+- The next version is expected to be compatible with NetProxy transparent proxy and support ARM7a architecture mobile phones.
