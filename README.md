@@ -10,7 +10,8 @@
 [![Join Telegram Channel](https://img.shields.io/badge/Telegram-Join%20Channel-06d6a0?logo=telegram&logoColor=white)](https://t.me/+Q3Ur_HCYdM0xM2I1)
 [![Join Telegram Group](https://img.shields.io/badge/Telegram-Join%20Group-118ab2?logo=telegram&logoColor=white)](https://t.me/+Q3Ur_HCYdM0xM2I1)
 
-关注我们的频道获取最新消息，或加入我们的群组进行讨论！  
+关注我们的频道获取最新消息，或加入我们的群组进行讨论！
+Telegram(https://t.me/+jMhOKwFEgwxlOTA1)  
 
 ## 简介
 
