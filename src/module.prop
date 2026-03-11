@@ -1,7 +1,7 @@
 id=AdGuardHome
 name=AdGuardHome for Root
-version=260332
-versionCode=47
+version=260309
+versionCode=49
 author=twoone3 & linjoin
-description=🪵未启用
+description=🪵 未启用
 updateJson=https://raw.githubusercontent.com/linjoin/AdGuardHomeForRoot/refs/heads/main/version.json
