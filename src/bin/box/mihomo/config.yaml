@@ -74,7 +74,7 @@ proxy-providers:
     override:
       additional-prefix: "Additi："
     path: ./proxies/3.额外地址.yaml
-    url: ""
+    url: "订阅地址链接"
 
 profile:
   store-selected: true
