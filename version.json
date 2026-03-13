@@ -1,6 +1,6 @@
 {
-  "versionCode": 49,
-  "version": "20260309",
-  "zipUrl": "https://github.com/linjoin/AdGuardHomeForRoot/releases/download/20260309/AdGuardHomeForRoot_arm64.zip",
+  "versionCode": 50,
+  "version": "20260314",
+  "zipUrl": "https://github.com/linjoin/AdGuardHomeForRoot/releases/download/20260314/AdGuardHomeForRoot.zip",
   "changelog": "https://raw.githubusercontent.com/linjoin/AdGuardHomeForRoot/refs/heads/main/changelog.md"
 }
