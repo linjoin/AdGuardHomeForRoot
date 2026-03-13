@@ -6,8 +6,8 @@
 - Notify when the operation status changes
 - 增加效验模块运行所需的必要文件机制
 - Increase the necessary file mechanism required for the operation of the verification module
-- 支持架构为v7的设备
-- Devices that support the v7 architecture
+- 支持架构为v7的设备(v7版和arm64版合并成一个文件)
+- Devices that support the v7 architecture (v7 and arm64 merged into one file)
 - 自版本号为 20260314 后将不再备份adg的配置但是会备份缓存(拦截缓存若是存在就可以更快的拦截拦截过的域名)
 - Adg configuration will no longer be backed up after version 20260414, but the cache will be backed up (interception cache can be used to intercept the domain name more quickly if it exists).
 - 更新 AdGuard Home v0.107.73 (更新日志：我们发布此热修复程序是为了解决近期发现的一个严重漏洞，该漏洞可能允许用户绕过身份验证，并在没有有效凭据的情况下完全访问 AdGuard Home。)
