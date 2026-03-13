@@ -2,9 +2,13 @@
 - Routine addition rules
 - 优化了一下代码
 - The code has been optimized.
-- 更新AdGuard Home v0.107.73 
-- To update AdGuard Home v0.107.73 
 - 运行状态发生变化时发出通知
 - Notify when the operation status changes
-- 下版本预计适配 NetProxy 透明代理
-- The next version is expected to be compatible with NetProxy transparent proxy 
+- 增加效验模块运行所需的必要文件机制
+- Increase the necessary file mechanism required for the operation of the verification module
+- 支持架构为v7的设备
+- Devices that support the v7 architecture
+- 自版本号为 20260314 后将不再备份adg的配置但是会备份缓存(拦截缓存若是存在就可以更快的拦截拦截过的域名)
+- Adg configuration will no longer be backed up after version 20260414, but the cache will be backed up (interception cache can be used to intercept the domain name more quickly if it exists).
+- 更新 AdGuard Home v0.107.73 (更新日志：我们发布此热修复程序是为了解决近期发现的一个严重漏洞，该漏洞可能允许用户绕过身份验证，并在没有有效凭据的情况下完全访问 AdGuard Home。)
+- Update AdGuard Home v0. 107. 73 ( Update log: We released this hotfix to address a recently discovered critical vulnerability that could allow users to bypass authentication and gain full access to AdGuard Home without valid credentials. )
