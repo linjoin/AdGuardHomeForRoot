@@ -1,2 +1,8 @@
+- 紧急修复 
+- througheconomicEmergency repair
 - 删除效验等相关代码(没完善bug太多了懒得修)
 - Delete the verification code and other related code (there are too many bugs that I don't want to fix).
+- - 点击执行按钮不再开关WiFi和数据
+- Clicking the execute button no longer turns WiFi and data on and off
+- 解决因为目标路径文件被设置为不可变属性而导致删除失败从而安装失败
+- Solve the problem of installation failure caused by deletion failure due to the target path file being set as an immutable attribute
