@@ -1,8 +1,18 @@
-- 紧急修复 
-- througheconomicEmergency repair
-- 删除效验等相关代码(没完善bug太多了懒得修)
-- Delete the verification code and other related code (there are too many bugs that I don't want to fix).
-- - 点击执行按钮不再开关WiFi和数据
+- 例行增添规则(增加了两个白名单规则，删除了一个黑名单规则)
+- Routine addition of rules (added a whitelist rule)    
+- 点击执行按钮不再开关WiFi和数据
 - Clicking the execute button no longer turns WiFi and data on and off
-- 解决因为目标路径文件被设置为不可变属性而导致删除失败从而安装失败
-- Solve the problem of installation failure caused by deletion failure due to the target path file being set as an immutable attribute
+- 修复因为覆盖春梦的adg而导致报错
+- Fix the error caused by covering the adg of spring dream
+- 修复脚本判断语言逻辑错误
+- Correct the language logic error in the repair script.
+- 优化了脚本的执行速度
+- The execution speed of the script has been optimized.
+- 安装完成后跳转酷安
+- Jump to Coolang after installation is completed.
+- 模块名从AdGuardHome for Root改为AdGuardHome for Root AutoOpt
+- Rename module from AdGuardHome for Root to AdGuardHome for Root AutoOpt
+- 增加防小白乱设置导致启动错误的更改
+- Add changes to prevent incorrect startup caused by improper settings by new users.
+- 精简了一些模块内完全无意义的代码
+- Some completely meaningless code in some modules has been streamlined.
