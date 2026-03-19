@@ -1,4 +1,4 @@
-# AdGuardHome for Root
+# AdGuardHome for Root AutoOpt
 
 [English](README_en.md) | 简体中文
 
