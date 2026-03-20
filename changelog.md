@@ -1,18 +1,13 @@
-- 例行增添规则(增加了两个白名单规则，删除了一个黑名单规则)
-- Routine addition of rules (added a whitelist rule)    
-- 点击执行按钮不再开关WiFi和数据
-- Clicking the execute button no longer turns WiFi and data on and off
-- 修复因为覆盖春梦的adg而导致报错
-- Fix the error caused by covering the adg of spring dream
-- 修复脚本判断语言逻辑错误
-- Correct the language logic error in the repair script.
-- 优化了脚本的执行速度
-- The execution speed of the script has been optimized.
-- 安装完成后跳转酷安
-- Jump to Coolang after installation is completed.
-- 模块名从AdGuardHome for Root改为AdGuardHome for Root AutoOpt
-- Rename module from AdGuardHome for Root to AdGuardHome for Root AutoOpt
-- 增加防小白乱设置导致启动错误的更改
-- Add changes to prevent incorrect startup caused by improper settings by new users.
-- 精简了一些模块内完全无意义的代码
-- Some completely meaningless code in some modules has been streamlined.
+- 例行增添规则
+- Routine addition rules
+- 增加验证机制
+- Increase the verification mechanism
+- 增加保存自定义拦截规则
+- Increase the ability to save custom interception rules
+- 将adg的拦截进程绑定至0-1核心
+- Bind the adg interception process to 0-1 cores
+- 优化了判断打开酷安是否成功的逻辑
+- The logic of judging whether the opening of  Coolapk is successful has been optimize
+- 优化了某些脚本
+- Some scripts have been optimized.
+
