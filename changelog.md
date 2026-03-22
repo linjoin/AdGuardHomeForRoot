@@ -1,13 +1,19 @@
-- 例行增添规则
-- Routine addition rules
-- 增加验证机制
-- Increase the verification mechanism
-- 增加保存自定义拦截规则
-- Increase the ability to save custom interception rules
-- 将adg的拦截进程绑定至0-1核心
-- Bind the adg interception process to 0-1 cores
-- 优化了判断打开酷安是否成功的逻辑
-- The logic of judging whether the opening of  Coolapk is successful has been optimize
-- 优化了某些脚本
-- Some scripts have been optimized.
-
+- 例行更新拦截规则
+- 将 AdGuard 拦截进程绑定至 0-3 小核心
+- 优化核心绑定机制，采用 taskset + cpuset 双重方案
+- 修复开机初始阶段无网络的问题
+- 重构绝大部分脚本（tool.sh、inotify.sh、debug.sh、setcpu.sh、iptables.sh、base.sh、service.sh、customize.sh）
+- 进一步扩大防篡改保护范围
+- 修复部分用户反馈的应用广告漏拦截问题
+- 修复大量已知 bug
+- 修复了防篡改导致无法卸载等N个问题
+ =========== 
+- Routine update of blocking rules
+- Bind the AdGuard blocking process to CPU cores 0-3
+- Optimized core affinity mechanism using taskset + cpuset
+- Fixed the issue of no network access immediately after boot
+- Refactored most scripts (tool.sh, inotify.sh, debug.sh, setcpu.sh, iptables.sh, base.sh, service.sh, customize.sh)
+- Further expanded the scope of anti-tampering protection
+- Resolved ad bypass issues reported by some users
+- Fixed a large number of known bugs
+- Fixed N issues caused by anti-tampering, such as not being able to uninstall
