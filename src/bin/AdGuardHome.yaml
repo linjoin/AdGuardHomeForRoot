@@ -111,17 +111,25 @@ statistics:
 filters:
   - enabled: true
     url: https://raw.githubusercontent.com/zimoadmin/adgrule/main/rule/adgh.txt
-    name: zimoadmin
-    id: 1772902653
+    name: blacklist1
+    id: 1774072197
   - enabled: true
-    url: https://raw.githubusercontent.com/linjoin/Adguard_Interception_list/refs/heads/main/Ad%20blocker%20blacklist.txt
-    name: linjoin
-    id: 1772902654
+    url: https://raw.githubusercontent.com/linjoin/Blacklist_for_AdGuardHome/refs/heads/main/blacklist.txt
+    name: blacklist2
+    id: 1774072198
   - enabled: true
-    url: https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockdns.txt
-    name: adblockfilters
-    id: 1772902655
-whitelist_filters: []
+    url: https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt
+    name: blacklist3
+    id: 1774072199
+whitelist_filters:
+  - enabled: true
+    url: https://raw.githubusercontent.com/linjoin/Whitelist_for_AdGuardHome/refs/heads/main/whitelist.txt
+    name: Whitelist1
+    id: 1774101225
+  - enabled: true
+    url: https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt
+    name: Whitelist2
+    id: 1774101226
 user_rules:
   - ""
 dhcp:
