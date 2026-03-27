@@ -6,7 +6,7 @@
 
 本模块仅适用于已经 root 的安卓设备，支持 [Magisk](https://github.com/topjohnwu/Magisk) / [KernelSU](https://github.com/tiann/KernelSU) / [APatch](https://github.com/bmax121/APatch) 等 root 工具
 
-在 Release 页面下载 zip 文件，只提供一个 zip 文件.里面包含着 arm64 和 arm32 版本的模，在安装时会自动根据你的手机架构来选择进行安装
+在 Release 页面下载 zip 文件，只提供一个 zip 文件.里面包含着 arm64 和 arm32 版本的模块，在安装时会自动根据你的手机架构来选择进行安装
 
 ---
 
@@ -139,7 +139,8 @@ dns:
 ```powershell
 .\pack.ps1
 ```
-```终端(以Termux为例)
+在 Android 系统上打开终端(以Termux为例)并执行以下命令
+```shell
 termux-setup-storage
 chmod +x 文件完整路径
 ```
@@ -195,7 +196,6 @@ chmod +x 文件完整路径
 **A:**  
 
 - 模块对性能的影响较小，但在低性能设备上可能会有轻微延迟。  
-- 推荐使用 **arm64** 版本以获得更好的性能。
 
 ### **Q：使用模块后，无法访问 Google 怎么办？**
 
