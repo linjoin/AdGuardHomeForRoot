@@ -6,7 +6,7 @@
 
 本模块仅适用于已经 root 的安卓设备，支持 [Magisk](https://github.com/topjohnwu/Magisk) / [KernelSU](https://github.com/tiann/KernelSU) / [APatch](https://github.com/bmax121/APatch) 等 root 工具
 
-在 Release 页面下载 zip 文件，提供了 arm64 和 armv7 两个版本。一般推荐使用 arm64 版，因为它在性能上更优，并且与大多数现代设备兼容。
+在 Release 页面下载 zip 文件，只提供一个 zip 文件.里面包含着 arm64 和 arm32 版本的模，在安装时会自动根据你的手机架构来选择进行安装
 
 ---
 
@@ -71,12 +71,6 @@ proxy-groups:
     include-all: true
 
 rules:
-proxy-groups:
-  - name: PROXY
-    type: select
-    include-all: true
-
-rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,googlefcm,DIRECT
   - GEOSITE,bilibili,DIRECT
@@ -85,20 +79,18 @@ rules:
   - GEOSITE,youtube,PROXY
   - GEOSITE,telegram,PROXY
   - GEOSITE,google,PROXY
-  
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,category-scholar-!cn,PROXY
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
   - GEOSITE,geolocation-!cn,PROXY
   - GEOSITE,cn,DIRECT
-
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,google,DIRECT
   - GEOIP,telegram,PROXY
   - GEOIP,cn,DIRECT
-
   - MATCH,DIRECT
+
 
 ```
 
@@ -134,20 +126,23 @@ dns:
 - **`/data/adb/agh/bin/AdGuardHome.yaml`**：AdGuardHome 的主配置文件。
 - **`/data/adb/agh/settings.conf`**：模块的配置文件，具体说明请参考文件内的注释。
 
-在更新模块时，用户可以选择是否保留原有的配置文件。如果选择不保留，系统会自动将原配置文件备份到 **`/data/adb/agh/backup`** 目录，以确保数据安全。
+在更新模块时，用户不可选择备份功能，默认取消备份，但是会保留自定义规则
 
 ---
 
 ## 模块打包 (Module Packaging)
 
-模块根目录下提供了一个名为 `pack.ps1` 的打包脚本，用户可以通过它快速生成模块的安装包。
+模块根目录下提供了一个名为 `pack.ps1`  `pack2.sh` 的打包脚本，用户可以通过它快速生成模块的安装包。
 
 在 Windows 系统上，打开 PowerShell 并执行以下命令：
 
 ```powershell
 .\pack.ps1
 ```
-
+```终端(以Termux为例)
+termux-setup-storage
+chmod +x 文件完整路径
+```
 运行脚本后，以下操作将自动完成：
 
 1. 创建 `cache` 目录（如果尚未存在）。
