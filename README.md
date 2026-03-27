@@ -23,7 +23,7 @@
 - 可选将本机 DNS 请求转发到本地 AdGuardHome 服务器
 - 压缩包内支持自动选择对应架构的模块进行安装
 - 还有好多我都记不清了建议自己安装体验体验
-- 使用黑名单 [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt [Blacklist_for_AdGuardHome] (https://github.com/linjoin/Blacklist_for_AdGuardHome) [AdGuard Rule](https://mirror.ghproxy.com/https://raw.githubusercontent.com/zimoadmin/adgrule/main/rule/adgh.txt)
+- 使用黑名单 [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt) [Blacklist_for_AdGuardHome](https://github.com/linjoin/Blacklist_for_AdGuardHome) [AdGuard Rule](https://mirror.ghproxy.com/https://raw.githubusercontent.com/zimoadmin/adgrule/main/rule/adgh.txt)
 - 使用白名单 [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt) [Whitelist_for_AdGuardHome](https://raw.githubusercontent.com/linjoin/Whitelist_for_AdGuardHome/refs/heads/main/whitelist.txt)
 
 - 可从 <http://127.0.0.1:3000> 访问 AdGuardHome 控制面板，支持查询统计，修改 DNS 上游服务器以及自定义规则等功能
