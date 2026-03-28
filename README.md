@@ -1,4 +1,4 @@
-# AdGuardHome for Root AutoOpt
+# AdGuardHome For Root AutoOpt
 
 [English](README_en.md) | 简体中文
 
@@ -17,14 +17,28 @@
 - 该模块支持 Magisk、KernelSU 和 APatch 等多种安装方式，适用于大多数 Android 设备。
 - 该模块的设计初衷是为了提供一个轻量级的广告拦截解决方案，避免了使用 VPN 的复杂性和性能损失。
 - 它可以与其他代理软件（如 [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid)、[FlClash](https://github.com/chen08209/FlClash)、[box for magisk](https://github.com/taamarin/box_for_magisk)、[akashaProxy](https://github.com/akashaProxy/akashaProxy) 等）共存，提供更好的隐私保护和网络安全。
+- AdGuardHome For Root AutoOpt 为 AdGuardHome For Root 的分支
+
+##使用前提
+
+- 有 root 权限 模块支持 [Magisk](https://github.com/topjohnwu/Magisk) | [KernelSU](https://github.com/tiann/KernelSU) | [APatch](https://github.com/bmax121/APatch) 
+- 与一切 hosts 模块冲突，使用前请删除相关 hosts 模块
+- 不要有两个 DNA 过滤器/模块
+- 请不要与同类型的DNS模块做对比
+- 能自己查资料解决基础问题
 
 ## 特性
 
 - 可选将本机 DNS 请求转发到本地 AdGuardHome 服务器
 - 压缩包内支持自动选择对应架构的模块进行安装
 - 还有好多我都记不清了建议自己安装体验体验
-- 使用黑名单 [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt) | [Blacklist_for_AdGuardHome](https://github.com/linjoin/Blacklist_for_AdGuardHome) | [AdGuard Rule](https://mirror.ghproxy.com/https://raw.githubusercontent.com/zimoadmin/adgrule/main/rule/adgh.txt)
-- 使用白名单 [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt) | [Whitelist_for_AdGuardHome](https://raw.githubusercontent.com/linjoin/Whitelist_for_AdGuardHome/refs/heads/main/whitelist.txt)
+- 使用黑名单: 
+- [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt) 
+- [Blacklist_for_AdGuardHome](https://github.com/linjoin/Blacklist_for_AdGuardHome) 
+- [AdGuard Rule](https://mirror.ghproxy.com/https://raw.githubusercontent.com/zimoadmin/adgrule/main/rule/adgh.txt)
+- 使用白名单:
+- [GOODBYEADS](https://ghfast.top/raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt) 
+- [Whitelist_for_AdGuardHome](https://raw.githubusercontent.com/linjoin/Whitelist_for_AdGuardHome/refs/heads/main/whitelist.txt)
 
 - 可从 <http://127.0.0.1:3000> 访问 AdGuardHome 控制面板，支持查询统计，修改 DNS 上游服务器以及自定义规则等功能
 
