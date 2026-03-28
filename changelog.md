@@ -1,19 +1,19 @@
-- 例行更新拦截规则
-- 将 AdGuard 拦截进程绑定至 0-3 小核心
-- 优化核心绑定机制，采用 taskset + cpuset 双重方案
-- 修复开机初始阶段无网络的问题
-- 重构绝大部分脚本（tool.sh、inotify.sh、debug.sh、setcpu.sh、iptables.sh、base.sh、service.sh、customize.sh）
-- 进一步扩大防篡改保护范围
-- 修复部分用户反馈的应用广告漏拦截问题
-- 修复大量已知 bug
-- 修复了防篡改导致无法卸载等N个问题
- =========== 
-- Routine update of blocking rules
-- Bind the AdGuard blocking process to CPU cores 0-3
-- Optimized core affinity mechanism using taskset + cpuset
-- Fixed the issue of no network access immediately after boot
-- Refactored most scripts (tool.sh, inotify.sh, debug.sh, setcpu.sh, iptables.sh, base.sh, service.sh, customize.sh)
-- Further expanded the scope of anti-tampering protection
-- Resolved ad bypass issues reported by some users
-- Fixed a large number of known bugs
-- Fixed N issues caused by anti-tampering, such as not being able to uninstall
+- 例行增加规则
+- 健壮bug文件
+- 将inotifyd.sh改为只记录错误日志,再次优化了监控的逻辑(优先使用面具或者管理器的busybox)
+- 将进程绑定到0~2(硬)
+- 第N次尝试修复开机没网的问题
+- 将整体风格改为日系风格
+- 更换sing-box配置
+- 优化了安装脚本并解决了一个非常致命的语法错误(重构改为完全按照POSIX标准)
+- 增加检测到 Magisk 则安装 KsuWebUI 
+=================
+- Routine addition of rules
+- Robust bug file
+- Changed inotifyd.sh to only log errors, further optimizing the monitoring logic (preferring mask or manager's busybox)
+- Bind the process to 0~2 (hard)
+- The Nth attempt to fix the issue of no internet connection when booting up
+- Change the overall style to a Japanese style
+- Replace sing-box configuration
+- Optimized the installation script and resolved a very fatal syntax error (refactored to fully adhere to POSIX standards)
+- Install KsuWebUI if Magisk is detected
