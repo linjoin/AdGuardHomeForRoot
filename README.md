@@ -19,7 +19,7 @@
 - 它可以与其他代理软件（如 [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid)、[FlClash](https://github.com/chen08209/FlClash)、[box for magisk](https://github.com/taamarin/box_for_magisk)、[akashaProxy](https://github.com/akashaProxy/akashaProxy) 等）共存，提供更好的隐私保护和网络安全。
 - AdGuardHome For Root AutoOpt 为 AdGuardHome For Root 的分支
 
-##使用前提
+## 使用前提
 
 - 有 root 权限 模块支持 [Magisk](https://github.com/topjohnwu/Magisk) | [KernelSU](https://github.com/tiann/KernelSU) | [APatch](https://github.com/bmax121/APatch) 
 - 与一切 hosts 模块冲突，使用前请删除相关 hosts 模块
