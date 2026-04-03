@@ -3,5 +3,5 @@ name=AdGuardHome For Root AutoOpt Installer
 version=9999999
 versionCode=99999999
 author=linjoin
-description=此模块为安装 AdGuardHome For Root  AutoOpt 的附加模块(重启自动删除)
+description=本模块是 AdGuardHome For Root AutoOpt の 安装辅助模块哦(重启后会自动消失哒)
 updateJson=
