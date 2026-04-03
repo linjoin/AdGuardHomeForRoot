@@ -1,19 +1,17 @@
 - 例行增加规则
-- 健壮bug文件
-- 将inotifyd.sh改为只记录错误日志,再次优化了监控的逻辑(优先使用面具或者管理器的busybox)
-- 将进程绑定到0~2(硬)
-- 第N次尝试修复开机没网的问题
-- 将整体风格改为日系风格
-- 更换sing-box配置
-- 优化了安装脚本并解决了一个非常致命的语法错误(重构改为完全按照POSIX标准)
-- 增加检测到 Magisk 则安装 KsuWebUI 
-=================
+- 增加可在settings.conf里自定义设置inotify日志级别并且大大大大的优化(默认为信息级别)
+- 增加可在settings.conf里自定义开关通知开关(默认开启)
+- 增加备份自定义DNS服务器和黑白名单(耗时较久十几秒钟)
+- 不再备份querylog.json文件，貌似备份这个没卵用
+- 回退为标准风格、正常风格
+- 依旧每次更新必定优化的安装流程(改为了仅在必要时设置SELinux，采用了更加宽容的音量键监听方案(，安装时自动关闭系统DNS开关)
+- 优化代码
+====================
 - Routine addition of rules
-- Robust bug file
-- Changed inotifyd.sh to only log errors, further optimizing the monitoring logic (preferring mask or manager's busybox)
-- Bind the process to 0~2 (hard)
-- The Nth attempt to fix the issue of no internet connection when booting up
-- Change the overall style to a Japanese style
-- Replace sing-box configuration
-- Optimized the installation script and resolved a very fatal syntax error (refactored to fully adhere to POSIX standards)
-- Install KsuWebUI if Magisk is detected
+- Increase customizable settings for inotify log level in settings.conf and optimize greatly (default is informational level)
+- Increase the customizable switch notification switch in settings.conf (default on)
+- Increase backup custom DNS server and blacklist/whitelist (takes a long time, about 10 seconds)
+- No longer back up the querylog.json file, it seems that backing up this is useless.
+- Revert to standard style, normal style
+- The installation process is still optimized every time it is updated (SELinux is set only when necessary, a more tolerant volume key listening scheme is used, and the system DNS switch is automatically turned off during installation)
+- Optimize code
