@@ -1,86 +1,122 @@
 #!/system/bin/sh
 
-until [ "$(getprop init.svc.bootanim)" = "stopped" ]; do
-  sleep 15
-done
-
-rm -rf /data/adb/modules_update/AdGuardHome 2>/dev/null
-
-VALIDATION_FILE="/data/adb/modules/AdGuardHome/Validation"
-MODULE_PROP="/data/adb/modules/AdGuardHome/module.prop"
+MODULE_DIR="/data/adb/modules/AdGuardHome"
+MODULE_UPDATE_DIR="/data/adb/modules_update/AdGuardHome"
+AGH_DIR="/data/adb/agh"
+AGH_SCRIPT_DIR="$AGH_DIR/scripts"
+VALIDATION_FILE="$MODULE_DIR/Validation"
+MODULE_PROP="$MODULE_DIR/module.prop"
+VALIDATION_KEY="X7kL9pQ2rM5vN3jH8fD1"
 BOX_SINGBOX="/data/adb/box/sing-box/config.json"
 BOX_MIHOMO="/data/adb/box/mihomo/config.yaml"
-MODULE_SINGBOX="/data/adb/modules/AdGuardHome/box/sing-box/config.json"
-MODULE_MIHOMO="/data/adb/modules/AdGuardHome/box/mihomo/config.yaml"
+MODULE_SINGBOX="$MODULE_DIR/box/sing-box/config.json"
+MODULE_MIHOMO="$MODULE_DIR/box/mihomo/config.yaml"
 
-START_TOOL=false
+wait_for_boot() {
+    while [ "$(getprop init.svc.bootanim)" != "stopped" ]; do
+        sleep 15
+    done
+}
 
-if [ -f "$VALIDATION_FILE" ]; then
-  VALIDATION_CONTENT=$(cat "$VALIDATION_FILE" 2>/dev/null)
-  
-  if [ "$VALIDATION_CONTENT" = "X7kL9pQ2rM5vN3jH8fD1" ]; then
-    REPLACE_SUCCESS=true
-    
-    if [ -f "$MODULE_SINGBOX" ] && [ -f "$BOX_SINGBOX" ]; then
-      if ! diff -q "$MODULE_SINGBOX" "$BOX_SINGBOX" >/dev/null 2>&1; then
-        REPLACE_SUCCESS=false
-      fi
-    fi
-    
-    if [ -f "$MODULE_MIHOMO" ] && [ -f "$BOX_MIHOMO" ]; then
-      if ! diff -q "$MODULE_MIHOMO" "$BOX_MIHOMO" >/dev/null 2>&1; then
-        REPLACE_SUCCESS=false
-      fi
-    fi
-    
-    if [ "$REPLACE_SUCCESS" = true ]; then
-      START_TOOL=true
+update_module_description() {
+    [ -f "$MODULE_PROP" ] || return 0
+
+    if [ "$language" = "en" ]; then
+        sed -i "s/^description=.*/description=$1/" "$MODULE_PROP"
     else
-      if [ -f "$MODULE_PROP" ]; then
-        sed -i 's/^description=.*/description=[⚠️ box配置未成功替换，模块未启动，强行启动请点击执行 Box config not replaced, module not started, click to force start] AdGuardHome for Root/' "$MODULE_PROP"
-      fi
-      exit 0
+        sed -i "s/^description=.*/description=$2/" "$MODULE_PROP"
     fi
-  else
-    if [ -f "$MODULE_PROP" ]; then
-      sed -i 's/^description=.*/description=[⚠️ validation内容错误，模块未启动 Validation content error, module not started] AdGuardHome for Root/' "$MODULE_PROP"
+}
+
+files_match_if_present() {
+    _src="$1"
+    _dst="$2"
+
+    if [ ! -f "$_src" ] || [ ! -f "$_dst" ]; then
+        return 0
     fi
-    exit 0
-  fi
-else
-  START_TOOL=true
-fi
 
-if [ "$START_TOOL" = true ]; then
-  if [ -d "/data/adb/agh/scripts" ]; then
-    chattr +i -R /data/adb/agh/scripts 2>/dev/null
-  fi
-  
-  if [ -d "/data/adb/modules/AdGuardHome" ]; then
-    find /data/adb/modules/AdGuardHome -type f ! -name "module.prop" ! -name "update" ! -name "uninstall.sh" -exec chattr +i {} \; 2>/dev/null
-  fi
+    diff -q "$_src" "$_dst" >/dev/null 2>&1
+}
 
-  /data/adb/agh/scripts/tool.sh start
-  /data/adb/agh/scripts/setcpu.sh
-  
-  inotifyd /data/adb/agh/scripts/inotify.sh /data/adb/modules/AdGuardHome:d,n &
-  inotifyd /data/adb/agh/scripts/inotify.sh /data/adb/modules_update/:w,d,n,c &
-  
-  WIFI_WAS_ON=false
-  DATA_WAS_ON=false
-  
-  [ "$(settings get global wifi_on)" = "1" ] && WIFI_WAS_ON=true
-  [ "$(settings get global mobile_data)" = "1" ] && DATA_WAS_ON=true
-  
-  if [ "$WIFI_WAS_ON" = true ] || [ "$DATA_WAS_ON" = true ]; then
-    [ "$WIFI_WAS_ON" = true ] && svc wifi disable
-    [ "$DATA_WAS_ON" = true ] && svc data disable
+validate_installation() {
+    [ -f "$VALIDATION_FILE" ] || return 0
+
+    _content=$(cat "$VALIDATION_FILE" 2>/dev/null)
+    if [ "$_content" != "$VALIDATION_KEY" ]; then
+        update_module_description \
+            "Invalid validation key, service stopped" \
+            "校验密钥无效，服务已停止"
+        return 1
+    fi
+
+    files_match_if_present "$MODULE_SINGBOX" "$BOX_SINGBOX" || {
+        update_module_description \
+            "Box configuration not synchronized, service suspended" \
+            "Box配置未同步，服务已暂停"
+        return 1
+    }
+
+    files_match_if_present "$MODULE_MIHOMO" "$BOX_MIHOMO" || {
+        update_module_description \
+            "Box configuration not synchronized, service suspended" \
+            "Box配置未同步，服务已暂停"
+        return 1
+    }
+
+    return 0
+}
+
+lock_recursive_if_exists() {
+    [ -e "$1" ] || return 0
+    chattr +i -R "$1" 2>/dev/null
+}
+
+lock_files() {
+    lock_recursive_if_exists "$AGH_SCRIPT_DIR"
+
+    if [ -d "$MODULE_DIR" ]; then
+        find "$MODULE_DIR" -type f \
+            ! -name "module.prop" \
+            ! -name "update" \
+            ! -name "uninstall.sh" \
+            -exec chattr +i {} \; 2>/dev/null
+
+        lock_recursive_if_exists "$MODULE_DIR/webroot"
+        lock_recursive_if_exists "$MODULE_DIR/box"
+    fi
+}
+
+start_services() {
+    "$AGH_SCRIPT_DIR/tool.sh" start
+    "$AGH_SCRIPT_DIR/setcpu.sh"
+
+    inotifyd "$AGH_SCRIPT_DIR/inotify.sh" "${MODULE_DIR}:w,d,n,c,m" &
+    inotifyd "$AGH_SCRIPT_DIR/inotify.sh" "/data/adb/modules_update/:w,d,n,c,m" &
+}
+
+toggle_airplane_if_needed() {
+    if [ "$(settings get global airplane_mode_on)" = "1" ]; then
+        return 0
+    fi
+
+    sleep 30
+    settings put global airplane_mode_on 1
+    am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true
     sleep 3
-    [ "$WIFI_WAS_ON" = true ] && svc wifi enable
-    [ "$DATA_WAS_ON" = true ] && svc data enable
-  else
-    sleep 40
-    svc wifi enable
-    svc data enable
-  fi
-fi
+    settings put global airplane_mode_on 0
+    am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false
+}
+
+main() {
+    wait_for_boot
+    rm -rf "$MODULE_UPDATE_DIR" 2>/dev/null
+
+    validate_installation || exit 0
+
+    lock_files
+    start_services
+    toggle_airplane_if_needed
+}
+
+main
