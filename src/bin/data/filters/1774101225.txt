@@ -1,3 +1,5 @@
+@@||api.seayoo.com^$important
+@@||fp-it-tracker.fengkongcloud.com^$important
 @@/(^|\.)y2-3.com/$important
 @@/(alsc-cofig|ipassport|mtop)\.ele\.me/$important
 @@/(api-jhcx-v6-bj|hero|h5-bj|imgweboss)\.ninebot\.com/$important
