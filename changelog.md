@@ -1,17 +1,5 @@
-- 例行增加规则
-- 增加可在settings.conf里自定义设置inotify日志级别并且大大大大的优化(默认为信息级别)
-- 增加可在settings.conf里自定义开关通知开关(默认开启)
-- 增加备份自定义DNS服务器和黑白名单(耗时较久十几秒钟)
-- 不再备份querylog.json文件，貌似备份这个没卵用
-- 回退为标准风格、正常风格
-- 依旧每次更新必定优化的安装流程(改为了仅在必要时设置SELinux，采用了更加宽容的音量键监听方案(安装时自动关闭系统DNS开关)
-- 优化代码
+- 例行更新规则
+- 将AdGuard Home 核心更新至 v0.107.74
 ====================
-- Routine addition of rules
-- Increase customizable settings for inotify log level in settings.conf and optimize greatly (default is informational level)
-- Increase the customizable switch notification switch in settings.conf (default on)
-- Increase backup custom DNS server and blacklist/whitelist (takes a long time, about 10 seconds)
-- No longer back up the querylog.json file, it seems that backing up this is useless.
-- Revert to standard style, normal style
-- The installation process is still optimized every time it is updated (SELinux is set only when necessary, a more tolerant volume key listening scheme is used, and the system DNS switch is automatically turned off during installation)
-- Optimize code
+- Regular update rules
+- Update the AdGuard Home core to v0.106.74
