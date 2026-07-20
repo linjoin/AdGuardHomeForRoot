@@ -1,5 +1,32 @@
-- 例行更新规则
-- 将AdGuard Home 核心更新至 v0.107.74
-====================
-- Regular update rules
-- Update the AdGuard Home core to v0.106.74
+# v20260720 更新日志
+
+- 新增 yq v4.45.1 集成，替代手写 YAML 解析
+- 新增 CPU 拓扑自动检测
+- 新增 轮询重试机制
+- 新增 诊断日志输出到 history.log
+- 新增 cgroup 清理 trap
+- 新增 DNS 双栈配置（6 国内 + 6 国外上游）
+- 新增 HTTP/3 上游支持
+- 新增 并行请求模式
+- 新增 EDNS Client Subnet 支持（让 CDN 选最近节点）
+- 优化 webui 的 DNS 配置结构
+- 优化 customize.sh 执行逻辑
+- 优化 setcpu.sh 进程缓存逻辑
+- 优化日志输出
+- 优化进程 PID 读取
+- 优化验证授权逻辑
+- 优化配置校验机制
+- 优化 shell 脚本的兼容性
+- 优化 DNS 缓存逻辑
+- 优化 CPU 绑定算法
+- 优化 cgroup 锁机制和处理
+- 优化 配置文件的bootstrap_dns
+- 修复 cgroup 绑定失效
+- 修复 PID 复用风险
+- 修复 cgroup 泄漏
+- 修复 sed 注入风险
+- 修复 CPU 绑定部分失败
+- 修复 setup_cgroup 仅写主 PID 导致子线程脱离绑定
+- 修复 setcpu.sh 失败时 exit 1 导致模块状态异常
+- 删除 setcpu.sh 中硬编码的核心
+- 删除不可变机制
